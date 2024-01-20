@@ -4,8 +4,6 @@ import { TodoType } from "../../types"
 import { todosAtom } from "../atoms"
 
 function TodoList() {
-  console.log("rerender")
-
   const [todos, setTodos] = useAtom(todosAtom)
 
   const onDelete = (todo: PrimitiveAtom<TodoType>) => {
