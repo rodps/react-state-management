@@ -11,7 +11,13 @@ function FormAddTodo() {
     const formData = new FormData(event.currentTarget)
     const todo = formData.get("todo") as string
     inputRef.current!.value = ""
-    setTodos((prev) => [...prev, todo])
+    setTodos((prev) => [
+      ...prev,
+      {
+        text: todo,
+        completed: false,
+      },
+    ])
   }
 
   return (

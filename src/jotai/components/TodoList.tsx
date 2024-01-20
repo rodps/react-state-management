@@ -10,11 +10,22 @@ function TodoList() {
     setTodos(newTodos)
   }
 
+  const checkTodo = (index: number) => {
+    const newTodos = [...todos]
+    newTodos[index].completed = !newTodos[index].completed
+    setTodos(newTodos)
+  }
+
   return (
     <ul className="w-full">
       {todos.map((todo, i) => (
         <li key={i} className="flex mb-3">
-          <p className="flex-1">{todo}</p>
+          <p
+            className={`flex-1 cursor-pointer ${todo.completed ? "line-through text-green-500" : ""}`}
+            onClick={() => checkTodo(i)}
+          >
+            {todo.text}
+          </p>
           <button
             onClick={() => onDelete(i)}
             className="py-2 px-4 bg-red-500 text-white rounded text-xs hover:bg-red-600"

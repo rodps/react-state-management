@@ -1,1 +1,4 @@
-export type TodoListType = Array<string>
+export type TodoListType = Array<{
+  completed: boolean
+  text: string
+}>

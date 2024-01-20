@@ -8,7 +8,7 @@ function App() {
 
   const onSubmit = (todo: string) => {
     if (todo == "") return
-    setTodos([...todos, todo])
+    setTodos([...todos, { text: todo, completed: false }])
   }
 
   const onDelete = (index: number) => {
