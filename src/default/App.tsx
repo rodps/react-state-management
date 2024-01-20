@@ -1,10 +1,10 @@
 import { useState } from "react"
 import TodoList from "./components/TodoList"
 import FormAddTodo from "./components/FormAddTodo"
-import { TodoListType, TodoType } from "../types"
+import { TodoType } from "../types"
 
 function App() {
-  const [todos, setTodos] = useState<TodoListType>([])
+  const [todos, setTodos] = useState<TodoType[]>([])
 
   const onSubmit = (todo: TodoType) => {
     if (todo.text == "") return

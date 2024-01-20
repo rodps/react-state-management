@@ -1,8 +1,8 @@
-import { TodoListType, TodoType } from "../../types"
+import { TodoType } from "../../types"
 import TodoItem from "./TodoItem"
 
 interface ITodoListProps {
-  todos: TodoListType
+  todos: TodoType[]
   onDelete: (todo: TodoType) => void
   onCheck: (todo: TodoType) => void
 }
