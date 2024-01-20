@@ -10,6 +10,7 @@ function FormAddTodo() {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const todo = formData.get("todo") as string
+    if (!todo) return
     inputRef.current!.value = ""
     setTodos((prev) => [
       ...prev,

@@ -1,23 +1,17 @@
-import { TodoListType } from "../../types"
+import { TodoListType, TodoType } from "../../types"
+import TodoItem from "./TodoItem"
 
 interface ITodoListProps {
   todos: TodoListType
-  onDelete: (index: number) => void
+  onDelete: (todo: TodoType) => void
+  onCheck: (todo: TodoType) => void
 }
 
-function TodoList({ todos, onDelete }: ITodoListProps) {
+function TodoList({ todos, onDelete, onCheck }: ITodoListProps) {
   return (
     <ul className="w-full">
       {todos.map((todo, i) => (
-        <li key={i} className="flex mb-3">
-          <p className="flex-1">{todo.text}</p>
-          <button
-            onClick={() => onDelete(i)}
-            className="py-2 px-4 bg-red-500 text-white rounded text-xs hover:bg-red-600"
-          >
-            Delete
-          </button>
-        </li>
+        <TodoItem key={i} todo={todo} onDelete={onDelete} onCheck={onCheck} />
       ))}
     </ul>
   )

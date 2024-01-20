@@ -1,6 +1,7 @@
 import { useRef } from "react"
+import { TodoType } from "../../types"
 
-function FormAddTodo({ onSubmit }: { onSubmit: (todo: string) => void }) {
+function FormAddTodo({ onSubmit }: { onSubmit: (todo: TodoType) => void }) {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const onSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
@@ -8,7 +9,10 @@ function FormAddTodo({ onSubmit }: { onSubmit: (todo: string) => void }) {
     const formData = new FormData(event.currentTarget)
     const todo = formData.get("todo") as string
     inputRef.current!.value = ""
-    onSubmit(todo)
+    onSubmit({
+      text: todo,
+      completed: false,
+    })
   }
 
   return (
