@@ -1,6 +1,6 @@
-import { atom } from "jotai"
-import { TodoListType } from "../types"
+import { PrimitiveAtom, atom } from "jotai"
+import { TodoType } from "../types"
 
-const TodosAtom = atom<TodoListType>([])
+const todosAtom = atom<PrimitiveAtom<TodoType>[]>([])
 
-export { TodosAtom }
+export { todosAtom }

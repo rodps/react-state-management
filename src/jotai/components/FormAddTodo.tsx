@@ -1,10 +1,11 @@
-import { useSetAtom } from "jotai"
+import { atom, useSetAtom } from "jotai"
 import { useRef } from "react"
-import { TodosAtom } from "../atoms"
+import { todosAtom } from "../atoms"
+import { TodoType } from "../../types"
 
 function FormAddTodo() {
   const inputRef = useRef<HTMLInputElement>(null)
-  const setTodos = useSetAtom(TodosAtom)
+  const setTodos = useSetAtom(todosAtom)
 
   const onSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -14,10 +15,10 @@ function FormAddTodo() {
     inputRef.current!.value = ""
     setTodos((prev) => [
       ...prev,
-      {
+      atom<TodoType>({
         text: todo,
         completed: false,
-      },
+      }),
     ])
   }
 
