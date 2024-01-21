@@ -13,7 +13,7 @@ function TodoList() {
   return (
     <ul className="w-full">
       {todos.map((todo, i) => (
-        <TodoItem key={i} todo={todo} onDelete={onDelete} />
+        <TodoItem key={i} atom={todo} onDelete={onDelete} />
       ))}
     </ul>
   )

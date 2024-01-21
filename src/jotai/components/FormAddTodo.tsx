@@ -1,17 +1,19 @@
-import { atom, useSetAtom } from "jotai"
+import { atom, useAtom, useSetAtom } from "jotai"
 import { useRef } from "react"
-import { todosAtom } from "../atoms"
+import { readTodosAtom, todosAtom } from "../atoms"
 import { TodoType } from "../../types"
 
 function FormAddTodo() {
   const inputRef = useRef<HTMLInputElement>(null)
   const setTodos = useSetAtom(todosAtom)
+  const [readTodos] = useAtom(readTodosAtom)
 
   const onSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const todo = formData.get("todo") as string
     if (!todo) return
+    if (readTodos.find((t) => t.text === todo)) return
     inputRef.current!.value = ""
     setTodos((prev) => [
       ...prev,

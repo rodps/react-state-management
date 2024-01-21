@@ -1,14 +1,13 @@
 import { PrimitiveAtom, useAtom } from "jotai"
 import { TodoType } from "../../types"
 
-function TodoItem({
-  todo,
-  onDelete,
-}: {
-  todo: PrimitiveAtom<TodoType>
-  onDelete: (todo: PrimitiveAtom<TodoType>) => void
-}) {
-  const [item, setItem] = useAtom(todo)
+interface ITodoItemProps {
+  atom: PrimitiveAtom<TodoType>
+  onDelete: (atom: PrimitiveAtom<TodoType>) => void
+}
+
+function TodoItem({ atom, onDelete }: ITodoItemProps) {
+  const [item, setItem] = useAtom(atom)
 
   const onCheck = () => {
     setItem((props: TodoType) => ({
@@ -26,7 +25,7 @@ function TodoItem({
         {item.text}
       </p>
       <button
-        onClick={() => onDelete(todo)}
+        onClick={() => onDelete(atom)}
         className="py-2 px-4 bg-red-500 text-white rounded text-xs hover:bg-red-600"
       >
         Delete
