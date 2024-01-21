@@ -1,7 +1,6 @@
 import { PrimitiveAtom, useAtom } from "jotai"
 import TodoItem from "./TodoItem"
-import { TodoType } from "../../types"
-import { todosAtom } from "../atoms"
+import { TodoType, todosAtom } from "../atoms"
 
 function TodoList() {
   const [todos, setTodos] = useAtom(todosAtom)

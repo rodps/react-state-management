@@ -1,5 +1,5 @@
 import { PrimitiveAtom, useAtom } from "jotai"
-import { TodoType } from "../../types"
+import { TodoType } from "../atoms"
 
 interface ITodoItemProps {
   atom: PrimitiveAtom<TodoType>

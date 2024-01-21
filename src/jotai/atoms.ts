@@ -1,5 +1,9 @@
 import { PrimitiveAtom, atom } from "jotai"
-import { TodoType } from "../types"
+
+type TodoType = {
+  completed: boolean
+  text: string
+}
 
 const todosAtom = atom<PrimitiveAtom<TodoType>[]>([])
 
@@ -8,4 +12,4 @@ const readTodosAtom = atom((get) => {
   return todos.map((t: PrimitiveAtom<TodoType>) => get(t))
 })
 
-export { todosAtom, readTodosAtom }
+export { todosAtom, readTodosAtom, type TodoType }

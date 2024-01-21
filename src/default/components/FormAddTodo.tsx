@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { TodoType } from "../../types"
+import { TodoType } from "../types"
 
 function FormAddTodo({ onSubmit }: { onSubmit: (todo: TodoType) => void }) {
   const inputRef = useRef<HTMLInputElement>(null)

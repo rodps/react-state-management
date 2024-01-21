@@ -1,5 +1,9 @@
 import { create } from "zustand"
-import { TodoType } from "../types"
+
+export type TodoType = {
+  completed: boolean
+  text: string
+}
 
 export interface TodoListState {
   todos: TodoType[]

@@ -1,7 +1,7 @@
 import { atom, useAtom, useSetAtom } from "jotai"
 import { useRef } from "react"
 import { readTodosAtom, todosAtom } from "../atoms"
-import { TodoType } from "../../types"
+import { TodoType } from "../atoms"
 
 function FormAddTodo() {
   const inputRef = useRef<HTMLInputElement>(null)

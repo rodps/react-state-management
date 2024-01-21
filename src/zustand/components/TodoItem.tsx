@@ -1,4 +1,4 @@
-import { TodoType } from "../../types"
+import { TodoType } from "../store"
 import useTodoListStore from "../store"
 
 interface ITodoItemProps {

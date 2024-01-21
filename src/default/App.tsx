@@ -1,7 +1,7 @@
 import { useState } from "react"
 import TodoList from "./components/TodoList"
 import FormAddTodo from "./components/FormAddTodo"
-import { TodoType } from "../types"
+import { TodoType } from "./types"
 
 function App() {
   const [todos, setTodos] = useState<TodoType[]>([])
